@@ -28,6 +28,7 @@ function getPlayerMove(move) {
     if (inputP == "") {
         return getInput();
     }
+    return inputP;
 }
 
 function getComputerMove(move) {
@@ -37,6 +38,7 @@ function getComputerMove(move) {
     if (inputC == "") {
         return randomPlay();
     }
+    return inputC;
 }
 
 function getWinner(playerMove,computerMove) {
@@ -79,6 +81,7 @@ function playToFive() {
     console.log("Let's play Rock Paper Scissors");
     var playerWins = 0;
     var computerWins = 0;
+    var tiedGames = 0;
     // This function should continue to play Rock Paper Scissors until either the player or the computer has won five times.
     while (playerWins < 5 && computerWins < 5) {
         var playerMove = getPlayerMove();
@@ -86,12 +89,29 @@ function playToFive() {
         var winner = getWinner(playerMove, computerMove);
         if (winner == "player") {
             playerWins += 1;
-            console.log(playerMove + computerMove + winner);
         }
         else if (winner == "computer") {
             computerWins += 1;
         }
-        console.log("Player chose " + playerMove + " while Computer chose " + computerMove);
+        else if (winner == "tie") {
+            tiedGames += 1;
+        }
+        else {
+            winner = null;
+        }
+        console.log("Player chose " + playerMove + " while Computer chose " + computerMove + ".");
+        if (winner == "computer") {
+            console.log("Computer wins");
+        }
+        else if (winner == "player") {
+            console.log("Player wins")
+        }
+        else if (winner == "tie") {
+            console.log("Tie game")
+        }
+        else {
+            console.log("Invalid entry")
+        }
         console.log("The score is currently " + playerWins + " to " + computerWins + "\n");
     }
     // After each 'round', display some text in the console indicating who played what, who won, and what the current scoreboard looks like.
