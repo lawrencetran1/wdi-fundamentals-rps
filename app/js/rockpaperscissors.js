@@ -165,3 +165,4 @@ function playTo(x) {
     //  console.log("The score is currently " + playerWins + " to " + computerWins + "\n");
     return [playerWins, computerWins];
 }
+playTo(10);
