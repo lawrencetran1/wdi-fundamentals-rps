@@ -111,7 +111,7 @@ function playTo(x) {
             console.log("Tie game")
         }
         else {
-            console.log("Invalid entry")
+            getPlayerMove()
         }
         console.log("The score is currently " + playerWins + " to " + computerWins + "\n");
     }
